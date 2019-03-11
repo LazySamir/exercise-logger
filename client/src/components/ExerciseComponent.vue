@@ -4,19 +4,17 @@
 
     <div class="create-record">
       <p>Enter an exercise and reps</p>
-      <!-- v-model updates data on user input events -->
       <input type="text" data-cy="exercise-name-input" id="input-exercise" v-model="exercise" placeholder="Exercise Name">
       <input type="number" data-cy="exercise-reps-input" id="input-reps" v-model="reps" placeholder="Number of Reps">
-      <button data-cy="exercise-submit">Add</button>
+      <button data-cy="exercise-submit" v-on:click="createExercise">Add</button>
     </div>
 
     <hr>
     <p class="error" v-if="error">{{ error }}</p>
     <div class="exercise-container">
-      <!-- loop through exercises - needs a key for each element but its unused-->
       <div class="exercise"
         v-for="(exercise) in exercises" :key="exercise._id"
-
+        v-on:dblclick="deleteExercise(exercise._id)"
       >
         <p class="createdAt">{{ `${exercise.createdAt.getDate()}/${exercise.createdAt.getMonth()}/${exercise.createdAt.getFullYear()}` }}</p>
         <p class="exercise">{{ exercise.exercise }}</p>
@@ -39,7 +37,6 @@ export default {
       reps: ''
     }
   },
-  // when component is loaded
   async created() {
     try {
       this.exercises = await ExerciseService.getExercises();
@@ -50,7 +47,6 @@ export default {
   methods: {
     async createExercise() {
       await ExerciseService.insertExercise(this.exercise, this.reps);
-      // reset text boxes
       this.exercise = '',
       this.reps = '',
       this.exercises = await ExerciseService.getExercises()
@@ -63,7 +59,6 @@ export default {
 }
 </script>
 
-<!-- scoped style = limited to component -->
 <style scoped>
 
 div.container {
