@@ -13,6 +13,11 @@ class ExerciseService {
     });
   }
 
+  // Delete exercises
+  static deleteExercise(id) {
+    return axios.delete(`${url}${id}`);
+  }
+
   static getExercises() {
     // call resolve if works, rej if error
     return new Promise(async (resolve, reject) => {

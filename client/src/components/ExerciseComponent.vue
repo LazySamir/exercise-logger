@@ -16,6 +16,7 @@
       <!-- loop through exercises - needs a key for each element but its unused-->
       <div class="exercise"
         v-for="(exercise) in exercises" :key="exercise._id"
+
       >
         <p class="createdAt">{{ `${exercise.createdAt.getDate()}/${exercise.createdAt.getMonth()}/${exercise.createdAt.getFullYear()}` }}</p>
         <p class="exercise">{{ exercise.exercise }}</p>
@@ -52,6 +53,10 @@ export default {
       // reset text boxes
       this.exercise = '',
       this.reps = '',
+      this.exercises = await ExerciseService.getExercises()
+    },
+    async deleteExercise(id) {
+      await ExerciseService.deleteExercise(id);
       this.exercises = await ExerciseService.getExercises()
     }
   }
