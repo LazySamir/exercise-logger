@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node server/server.js",
     "test": "node_modules/.bin/jest",
+    "coverage": "node_modules/.bin/jest --coverage",
     "linter": "eslint . --ext .js"
   },
   "repository": {

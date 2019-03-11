@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../../app')
+const app = require('../app')
 
 // needed to fix regenerator issue
 import "@babel/polyfill";
