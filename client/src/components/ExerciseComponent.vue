@@ -46,14 +46,12 @@ export default {
   },
   methods: {
     async createExercise() {
-      console.log("creating exercise")
       await ExerciseService.insertExercise(this.name, this.reps);
       this.name = '',
       this.reps = '',
       this.exercises = await ExerciseService.getExercises()
     },
     async deleteExercise(id) {
-      console.log("deleting exercise")
       await ExerciseService.deleteExercise(id);
       this.exercises = await ExerciseService.getExercises()
     }
