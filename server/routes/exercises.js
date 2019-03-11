@@ -3,8 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', async (req, res) => {
-  const exercises = [{"name": "pull ups", "reps": 5},{"name": "push ups", "reps": 20},]
-
+  const exercises = await req.context.models.Exercise.find();
   res.send(exercises);
 });
 
