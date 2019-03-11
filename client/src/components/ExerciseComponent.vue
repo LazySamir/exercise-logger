@@ -46,6 +46,15 @@ export default {
       this.error = err.message;
     }
   },
+  methods: {
+    async createExercise() {
+      await ExerciseService.insertExercise(this.exercise, this.reps);
+      // reset text boxes
+      this.exercise = '',
+      this.reps = '',
+      this.exercises = await ExerciseService.getExercises()
+    }
+  }
 }
 </script>
 

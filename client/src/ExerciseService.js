@@ -5,6 +5,14 @@ const url = 'http://localhost:5000/exercises/'
 class ExerciseService {
   // static = do not need to instantiate to invoke .getExercises()
 
+  // Create exercises
+  static insertExercise(name, reps) {
+    return axios.post(url, {
+      name,
+      reps
+    });
+  }
+
   static getExercises() {
     // call resolve if works, rej if error
     return new Promise(async (resolve, reject) => {
