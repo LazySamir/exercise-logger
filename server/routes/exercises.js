@@ -23,4 +23,16 @@ router.post('/', async (req, res) => {
   return res.send();
 });
 
+router.delete('/:id', async (req, res) => {
+  const exercise = await req.context.models.Exercise.findById(
+    req.params.id,
+  );
+
+  if (exercise) {
+    await exercise.remove();
+  }
+
+  res.send();
+});
+
 module.exports = router;
