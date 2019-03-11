@@ -4,7 +4,7 @@
 
     <div class="create-record">
       <p>Enter an exercise and reps</p>
-      <input type="text" data-cy="exercise-name-input" id="input-exercise" v-model="exercise" placeholder="Exercise Name">
+      <input type="text" data-cy="exercise-name-input" id="input-name" v-model="name" placeholder="Exercise Name">
       <input type="number" data-cy="exercise-reps-input" id="input-reps" v-model="reps" placeholder="Number of Reps">
       <button data-cy="exercise-submit" v-on:click="createExercise">Add</button>
     </div>
@@ -17,7 +17,7 @@
         v-on:dblclick="deleteExercise(exercise._id)"
       >
         <p class="createdAt">{{ `${exercise.createdAt.getDate()}/${exercise.createdAt.getMonth()}/${exercise.createdAt.getFullYear()}` }}</p>
-        <p class="exercise">{{ exercise.exercise }}</p>
+        <p class="name">{{ exercise.name }}</p>
         <p class="reps>"> {{ exercise.reps }}</p>
       </div>
     </div>
@@ -33,7 +33,7 @@ export default {
     return {
       exercises: [],
       error: '',
-      exercise: '',
+      name: '',
       reps: ''
     }
   },
@@ -46,12 +46,14 @@ export default {
   },
   methods: {
     async createExercise() {
-      await ExerciseService.insertExercise(this.exercise, this.reps);
-      this.exercise = '',
+      console.log("creating exercise")
+      await ExerciseService.insertExercise(this.name, this.reps);
+      this.name = '',
       this.reps = '',
       this.exercises = await ExerciseService.getExercises()
     },
     async deleteExercise(id) {
+      console.log("deleting exercise")
       await ExerciseService.deleteExercise(id);
       this.exercises = await ExerciseService.getExercises()
     }
@@ -72,7 +74,7 @@ div.exercise {
   margin-bottom: 15px;
 }
 
-p.exercise {
+p.name {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 0;
