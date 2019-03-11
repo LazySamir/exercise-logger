@@ -14,4 +14,13 @@ router.get('/:id', async (req, res) => {
   return res.send(exercise);
 });
 
+router.post('/', async (req, res) => {
+  await req.context.models.Exercise.create({
+    name: req.body.name,
+    reps: req.body.reps,
+  });
+
+  return res.send();
+});
+
 module.exports = router;
