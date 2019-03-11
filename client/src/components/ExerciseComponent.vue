@@ -11,10 +11,22 @@
     </div>
 
     <hr>
+    <p class="error" v-if="error">{{ error }}</p>
+    <div class="exercise-container">
+      <!-- loop through exercises - needs a key for each element but its unused-->
+      <div class="exercise"
+        v-for="(exercise) in exercises" :key="exercise._id"
+      >
+        <p class="createdAt">{{ `${exercise.createdAt.getDate()}/${exercise.createdAt.getMonth()}/${exercise.createdAt.getFullYear()}` }}</p>
+        <p class="exercise">{{ exercise.exercise }}</p>
+        <p class="reps>"> {{ exercise.reps }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import ExerciseService from '../ExerciseService';
 
 export default {
   name: 'ExerciseComponent',
@@ -24,6 +36,14 @@ export default {
       error: '',
       exercise: '',
       reps: ''
+    }
+  },
+  // when component is loaded
+  async created() {
+    try {
+      this.exercises = await ExerciseService.getExercises();
+    } catch(err) {
+      this.error = err.message;
     }
   },
 }
