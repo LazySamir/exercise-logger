@@ -4,7 +4,8 @@
   "description": "A small exercise logger made with Node, Express, MongoDb and Vue",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec app.js"
+    "start": "nodemon --exec app.js",
+    "test": "node_modules/.bin/jest",
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,9 @@
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "jest": "^24.3.1",
+    "superagent": "^4.1.0",
+    "supertest": "^3.4.2"
   }
 }
