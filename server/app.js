@@ -11,4 +11,4 @@ app.use(cors());
 
 app.use('/exercises', routes.exercises);
 
-module.exports = app
+module.exports = app;

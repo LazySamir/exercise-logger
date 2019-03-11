@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon --exec babel-node server/server.js",
-    "test": "node_modules/.bin/jest"
+    "test": "node_modules/.bin/jest",
+    "linter": "eslint . --ext .js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,10 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
     "babel-preset-env": "^1.7.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "jest": "^24.3.1",
     "superagent": "^4.1.0",
     "supertest": "^3.4.2"

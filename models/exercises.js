@@ -12,7 +12,7 @@ const exercisesSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: new Date(),
-  }
+  },
 });
 
 const Exercise = mongoose.model('Exercises', exercisesSchema);
