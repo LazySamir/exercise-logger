@@ -1,0 +1,16 @@
+[
+    {
+        "createdAt": "2019-03-11T01:14:04.614Z",
+        "_id": "5c85adfe03e902d430efe7e2",
+        "name": "Squats",
+        "reps": 100,
+        "__v": 0
+    },
+    {
+        "createdAt": "2019-03-11T01:14:04.614Z",
+        "_id": "5c85ae0403e902d430efe7e3",
+        "name": "Lunges",
+        "reps": 200,
+        "__v": 0
+    }
+]
