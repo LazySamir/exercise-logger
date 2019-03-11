@@ -4,8 +4,8 @@
   "description": "A small exercise logger made with Node, Express, MongoDb and Vue",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec app.js",
-    "test": "node_modules/.bin/jest",
+    "start": "nodemon --exec babel-node server/server.js",
+    "test": "node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
